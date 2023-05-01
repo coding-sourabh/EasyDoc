@@ -7,9 +7,10 @@ import { HomeService } from './home.service';
 import { map, switchMap, take } from 'rxjs';
 import { Doctor } from '../shared/models/Doctor';
 import { Consultance } from '../shared/models/Consultance';
+import { PatientService } from '../patient/patients.service';
 
 class Consult {
-  constructor(private doctor: Doctor, private timeStamp: string, private consultId: number) { }
+  constructor(private doctor: Doctor, private patient: Patient, private timeStamp: string, private consultId: number) { }
 }
 
 @Component({
@@ -18,7 +19,7 @@ class Consult {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  patient: any;
+  loggedUser: any;
   myConsultance: any[] = [];
 
 
@@ -26,30 +27,50 @@ export class HomeComponent implements OnInit {
     private homeService: HomeService,
     private router: Router,
     private doctorService: DoctorService,
+    private patientService: PatientService,
     private authService: AuthService
   ) { }
 
   ngOnInit() {
-
     this.authService.userSubject.pipe(
       take(1),
-      switchMap((userPat: any) => {
-        this.patient = userPat;
-        return this.homeService.getConsultants(userPat.patientId) // this will return new observable discarding previous one
+      switchMap((user: any) => {
+        if(user.doctorId) {
+          this.loggedUser = user;
+          console.log(user);
+
+          return this.homeService.getConsultantsByDoctorId(user.doctorId);
+        } else  {
+          this.loggedUser = user;
+          return this.homeService.getConsultantsByPatientId(user.patientId);
+        }
       })
     )
       .subscribe(
         (consultArr: any) => {
+          console.log(consultArr);
           consultArr.forEach((consult: any) => {
             this.doctorService.getDoctorById(consult.doctorId).subscribe(
-              (doc) => this.myConsultance.push(new Consult(doc, consult.dateTime, consult.consultId))
+              (doc) => {
+                this.patientService.getPatientById(consult.patientId).subscribe(
+                  (pat) => {
+                    this.myConsultance.push(new Consult(doc, pat, consult.dateTime, consult.consultId))
+                  }
+                )
+              }
             )
           });
         }
       )
   }
 
-  onViewButton(doctorId: number, consultId: number) {
-    this.router.navigate(['/chat', this.patient.patientId, doctorId, consultId]);
+  onViewButton(id: number, consultId: number) {
+    console.log(id);
+
+    if(this.loggedUser.patientId) {
+      this.router.navigate(['/chat', this.loggedUser.patientId, id, consultId]);
+    } else {
+      this.router.navigate(['/chat', id, this.loggedUser.doctorId, consultId]);
+    }
   }
 }

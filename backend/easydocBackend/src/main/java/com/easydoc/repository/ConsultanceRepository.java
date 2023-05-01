@@ -9,5 +9,6 @@ import com.easydoc.entity.Doctor;
 
 public interface ConsultanceRepository extends CrudRepository<Consultance, Integer>  {
 	public List<Consultance> findByPatientId(Integer patientId);
+	public List<Consultance> findByDoctor(Doctor doctor);
 	public Consultance findByPatientIdAndDoctor(Integer patientId, Doctor doctor);
 }

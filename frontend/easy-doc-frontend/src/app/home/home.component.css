@@ -1,4 +1,3 @@
-
 /* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
@@ -22,7 +21,6 @@
   opacity: 0.5;
 }
 
-
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
@@ -36,11 +34,10 @@
 }
 /* rtl:begin:ignore */
 .marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
 }
 /* rtl:end:ignore */
-
 
 /* Featurettes
 ------------------------- */
@@ -54,9 +51,8 @@
   font-weight: 300;
   line-height: 1;
   /* rtl:remove */
-  letter-spacing: -.05rem;
+  letter-spacing: -0.05rem;
 }
-
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
@@ -80,3 +76,8 @@
   }
 }
 
+.consultListImg {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+}

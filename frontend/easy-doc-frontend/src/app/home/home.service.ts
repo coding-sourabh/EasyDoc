@@ -6,7 +6,11 @@ export class HomeService {
   URL = 'http://localhost:8088/api/';
   constructor(private http: HttpClient) {}
 
-  getConsultants(patientId: number) {
-    return this.http.get(this.URL + 'consultance/' + patientId);
+  getConsultantsByPatientId(patientId: number) {
+    return this.http.get(this.URL + 'consultance/patient/' + patientId);
+  }
+
+  getConsultantsByDoctorId(doctorId: number) {
+    return this.http.get(this.URL + 'consultance/doctor/' + doctorId)
   }
 }

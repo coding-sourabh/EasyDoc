@@ -17,13 +17,13 @@
                       : chatDoctor?.profileImg
                   "
                   class="rounded-circle user_img"
-                  style="background-size: contain,cover;"
+                  style="background-size: contain; object-fit: cover;"
                 />
                 <span class="online_icon"></span>
               </div>
               <div class="user_info">
-                <span *ngIf="loggedIn === 'patient'">{{ chatPatient.name }}</span>
-                <span *ngIf="loggedIn === 'doctor'">{{ chatPatient.name }}</span>
+                <span *ngIf="loggedIn === 'patient'">{{ chatPatient?.name }}</span>
+                <span *ngIf="loggedIn === 'doctor'">{{ chatDoctor?.name }}</span>
                 <p>Online</p>
               </div>
               <div class="video_cam">
@@ -61,6 +61,7 @@
                       : chatDoctor?.profileImg
                   "
                   class="rounded-circle user_img_msg"
+                  style="object-fit: cover;"
                 />
               </div>
               <div class="msg_cotainer">

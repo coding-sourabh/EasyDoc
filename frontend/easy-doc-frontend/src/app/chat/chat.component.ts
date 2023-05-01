@@ -36,7 +36,6 @@ export class ChatComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
     private chatService: ChatService,
-    private store: Store<fromApp.AppState>,
     private patientService: PatientService,
     private doctorService: DoctorService,
     private authService: AuthService

@@ -35,6 +35,18 @@ public class ConsultanceService {
 		return list;
 	}
 	
+	public List<ConsultanceDTO> getAllConsultanceOfDoctor(Integer doctorId) {
+		List<ConsultanceDTO> list = new ArrayList<>();
+		Optional<Doctor> optionalDoc = doctorRepository.findById(doctorId);
+		List<Consultance> entityList = consultanceRepository.findByDoctor(optionalDoc.get());
+		entityList.forEach(c -> {
+			ConsultanceDTO cdto = new ConsultanceDTO();
+			cdto.setDTO(c);
+			list.add(cdto);
+		});
+		return list;
+	}
+	
 	public Integer addConsultance(ConsultanceDTO consultanceDTO) { 
 		Consultance consultance = new Consultance();
 		Optional<Doctor> optionalDoc = doctorRepository.findById(consultanceDTO.getDoctorId());

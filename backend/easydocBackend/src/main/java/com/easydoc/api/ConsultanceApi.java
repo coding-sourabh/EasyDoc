@@ -23,9 +23,15 @@ public class ConsultanceApi {
 	@Autowired
 	ConsultanceService consultanceService;
 	
-	@GetMapping(value = "consultance/{patientId}")
+	@GetMapping(value = "consultance/patient/{patientId}")
 	ResponseEntity<List<ConsultanceDTO>> getAllConsulatanceByPatient(@PathVariable Integer patientId) {
 		List<ConsultanceDTO> consultanceList = consultanceService.getAllConsultanceOfPatient(patientId);
+		return new ResponseEntity<>(consultanceList, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "consultance/doctor/{doctorId}")
+	ResponseEntity<List<ConsultanceDTO>> getAllConsulatanceByDoctor(@PathVariable Integer doctorId) {
+		List<ConsultanceDTO> consultanceList = consultanceService.getAllConsultanceOfDoctor(doctorId);
 		return new ResponseEntity<>(consultanceList, HttpStatus.OK);
 	}
 	
