@@ -1,0 +1,23 @@
+<div class="card" style="width: 18rem">
+  <img
+    id="cardImg"
+    src="{{ doctor.profileImg }}"
+    class="card-img-top"
+    alt="{{ doctor.name }}"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ doctor.name }}</h5>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Specialist: {{ doctor.specialist }}</li>
+    <li class="list-group-item">Fees: {{ doctor.fees }}</li>
+    <li class="list-group-item">Experience: {{ doctor.experience }}</li>
+    <li class="list-group-item consultOption" (click)="onDoctorClick()">
+      Consult Now
+    </li>
+  </ul>
+</div>

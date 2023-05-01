@@ -1,0 +1,57 @@
+
+.main-container {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-image: url('../../assets/authBackground.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.form-signin {
+  height: 100%;
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  background-color: white;
+  border-radius: 10%;
+  z-index: 1;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.signup-text {
+  font-size: 14px;
+  color: grey;
+}
+
+.signup-text > a {
+  text-decoration: none;
+}
+
+.invalidMssg {
+  font-size: 10px;
+}

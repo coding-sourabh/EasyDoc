@@ -1,0 +1,55 @@
+
+.food-row {
+  overflow-x:auto;
+  display: inline-block;
+}
+.food-card {
+  border-radius: 10%;
+  background-color: #7F7FD5; /* For browsers that do not support gradients */
+  background-image: linear-gradient(0deg, #7F7FD5, #91EAE4);
+  width: 20%;
+  height: 50%;
+  padding: 30px;
+  margin: 10px;
+  margin-left: 5%;
+  margin-right: 0%;
+}
+
+.food-card:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease;
+}
+
+.food-image {
+  height: 70px;
+  width: 80px;
+  border-radius: 50%;
+  margin-left: 30%;
+}
+
+.food-name {
+  font-weight: 500;
+  margin-left: 30%;
+}
+
+.food-description {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 12px;
+  color: rgb(43, 43, 90);
+}
+
+.food-calories{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  /* font-weight: 500; */
+}
+
+.food-category {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 12px;
+}
+
+.btn {
+  width: 100%;
+  margin-top: 10px;
+}

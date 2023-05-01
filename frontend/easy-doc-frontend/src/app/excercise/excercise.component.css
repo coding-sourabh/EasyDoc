@@ -1,0 +1,22 @@
+
+.excercise-row {
+  overflow-x:auto;
+  display: inline-block;
+}
+.excercise-card {
+  border-radius: 10%;
+  background-color: #7F7FD5; /* For browsers that do not support gradients */
+  background-image: linear-gradient(0deg, #7F7FD5, #91EAE4);
+  width: 20%;
+  height: 50%;
+  padding: 30px;
+  margin: 10px;
+  margin-left: 5%;
+  margin-right: 0%;
+}
+
+.excercise-card:hover {
+  transform: scale(1.1);
+  transition: all 0.5s ease;
+}
+

@@ -1,0 +1,109 @@
+<div class="card mb-sm-3 mb-md-0 contacts_card">
+  <div class="card-header">
+    <span class="left-container-heading">Patient Baskets</span>
+    <i class="bi bi-basket"></i>
+  </div>
+  <div class="card-body contacts_body">
+    <ul class="list-group">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+      >
+        <div
+          class="ms-2 me-auto"
+          [routerLink]="['/excercise', chatPatientId, chatDoctorId, consultId]"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="select excercises"
+        >
+          <div class="basket-heading">Excercise</div>
+          <img class="basket-img" src="../../assets/excercisee.png" />
+        </div>
+
+        <div
+          id="basket-right-part"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="see your excercises"
+          [routerLink]="['/viewBasket', chatPatientId, chatDoctorId, consultId, 'excercise']"
+        >
+          <div class="badge bg-primary rounded-pill">
+            {{ allocExcLen }}
+          </div>
+          <br />
+          <img
+            src="../../assets/excercise-bucket.png"
+            class="basket-img"
+            alt="view basket"
+          />
+        </div>
+      </li>
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+      >
+        <div
+          class="ms-2 me-auto"
+          [routerLink]="['/food', chatPatientId, chatDoctorId, consultId]"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="select foods"
+        >
+          <div class="basket-heading">Food</div>
+          <img class="basket-img" src="../../assets/food.png" />
+        </div>
+
+        <div
+          id="basket-right-part"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="see your foods"
+          [routerLink]="['/viewBasket', chatPatientId, chatDoctorId, consultId, 'food']"
+        >
+          <div class="badge bg-primary rounded-pill">
+            {{ allocFoodLen }}
+          </div>
+
+          <br />
+
+          <img
+            src="../../assets/food-icon.png"
+            class="basket-img"
+            alt="view basket"
+          />
+        </div>
+      </li>
+      <li
+        class="list-group-item d-flex justify-content-between align-items-start"
+      >
+        <div
+          class="ms-2 me-auto"
+          [routerLink]="['/medicine', chatPatientId, chatDoctorId, consultId]"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="select medicine"
+        >
+          <div class="basket-heading">Medicine</div>
+          <img class="basket-img" src="../../assets/medicine.png" />
+        </div>
+        <div
+          id="basket-right-part"
+          id="basket-right-part"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="see your medicines"
+          [routerLink]="['/viewBasket', chatPatientId, chatDoctorId, consultId, 'medicine']"
+        >
+          <div class="badge bg-primary rounded-pill">
+            {{ allocMedLen }}
+          </div>
+          <br />
+          <img
+            src="../../assets/medicine-basket.png"
+            class="basket-img"
+            alt="view basket"
+          />
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="card-footer"></div>
+</div>

@@ -1,0 +1,27 @@
+<div class="food-container">
+  <div class="food-image-container">
+    <img
+      class="food-image"
+      src="{{ food.foodImage }}"
+      alt="{{ food.foodName }}"
+    />
+  </div>
+
+  <hr>
+
+  <div class="food-body">
+    <div class="food-name">{{ food.foodName }}</div>
+    <div class="food-description">
+      {{
+        food.description.length > 50
+          ? (food.description | slice : 0 : 50) + '...'
+          : food.description
+      }}
+    </div>
+    <hr>
+    <div class="food-calories">Calories : {{ food.calories }}</div>
+    <div class="food-category">Category: {{ food.category }}</div>
+    <hr>
+    <button class="btn btn-primary" (click)="onFoodClick()">Add</button>
+  </div>
+</div>

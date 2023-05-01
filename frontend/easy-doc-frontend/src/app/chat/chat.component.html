@@ -1,0 +1,100 @@
+<div id="chat-main-container">
+  <div class="container-fluid h-100">
+    <div class="row justify-content-center h-100">
+      <div class="col-md-4 col-xl-3 chat">
+        <app-basket></app-basket>
+      </div>
+
+      <div class="col-md-8 col-xl-6 chat">
+        <div class="card">
+          <div class="card-header msg_head">
+            <div class="d-flex bd-highlight">
+              <div class="img_cont">
+                <img
+                  [src]="
+                    loggedIn === 'patient'
+                      ? chatPatient.profileImg
+                      : chatDoctor?.profileImg
+                  "
+                  class="rounded-circle user_img"
+                  style="background-size: contain,cover;"
+                />
+                <span class="online_icon"></span>
+              </div>
+              <div class="user_info">
+                <span *ngIf="loggedIn === 'patient'">{{ chatPatient.name }}</span>
+                <span *ngIf="loggedIn === 'doctor'">{{ chatPatient.name }}</span>
+                <p>Online</p>
+              </div>
+              <div class="video_cam">
+                <span><i class="bi bi-camera-video-fill"></i></span>
+                <span><i class="bi bi-telephone-fill"></i></span>
+              </div>
+            </div>
+            <span id="action_menu_btn"
+              ><i class="bi bi-three-dots-vertical"></i
+            ></span>
+            <div class="action_menu">
+              <ul>
+                <li><i class="fas fa-user-circle"></i> View profile</li>
+                <li><i class="fas fa-users"></i> Add to close friends</li>
+                <li><i class="fas fa-plus"></i> Add to group</li>
+                <li><i class="fas fa-ban"></i> Block</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card-body msg_card_body">
+            <div
+              class="d-flex mb-4"
+              *ngFor="let mssg of messages"
+              [ngClass]="
+                mssg.messageBy === loggedIn
+                  ? 'justify-content-start'
+                  : 'justify-content-end'
+              "
+            >
+              <div class="img_cont_msg">
+                <img
+                  [src]="
+                    mssg.messageBy === 'patient'
+                      ? chatPatient.profileImg
+                      : chatDoctor?.profileImg
+                  "
+                  class="rounded-circle user_img_msg"
+                />
+              </div>
+              <div class="msg_cotainer">
+                {{ mssg.message }}
+                <span class="msg_time">{{
+                  mssg.timestamp | date : "shortTime"
+                }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <div class="input-group">
+              <div class="input-group-append">
+                <span class="input-group-text attach_btn"
+                  ><i class="bi bi-paperclip"></i
+                ></span>
+              </div>
+              <textarea
+                name=""
+                class="form-control type_msg"
+                placeholder="Type your message..."
+                [(ngModel)]="messageTyped"
+                (keydown.enter)="onSendClick()"
+              ></textarea>
+              <div class="input-group-append">
+                <span class="input-group-text send_btn">
+                  <i class="bi bi-send" (click)="onSendClick()"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

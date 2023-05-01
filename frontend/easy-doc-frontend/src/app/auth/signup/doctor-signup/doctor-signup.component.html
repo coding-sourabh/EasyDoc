@@ -1,0 +1,219 @@
+<div class="main-container">
+  <!-- Pills content -->
+  <div class="tab-content">
+    <div
+      class="tab-pane fade show active"
+      id="pills-login"
+      role="tabpanel"
+      aria-labelledby="tab-login"
+    >
+      <form [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            placeholder="Name"
+            formControlName="name"
+          />
+          <div
+            *ngIf="
+              doctorForm.get('name')?.invalid && doctorForm.get('name')?.touched
+            "
+          >
+            <p
+              class="text-danger"
+              *ngIf="doctorForm.get('name')?.hasError('required')"
+            >
+              This Field is required *
+            </p>
+          </div>
+        </div>
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            placeholder="Email"
+            formControlName="email"
+          />
+          <div
+            *ngIf="
+              doctorForm.get('email')?.invalid &&
+              doctorForm.get('email')?.touched
+            "
+          >
+            <p
+              class="text-danger"
+              *ngIf="doctorForm.get('email')?.hasError('required')"
+            >
+              This Field is required *
+            </p>
+            <p
+              class="text-danger"
+              *ngIf="doctorForm.get('email')?.hasError('email')"
+            >
+              Enter a valid email *
+            </p>
+          </div>
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            placeholder="password"
+            formControlName="password"
+          />
+          <div
+            *ngIf="
+              doctorForm.get('password')?.invalid &&
+              doctorForm.get('password')?.touched
+            "
+          >
+            <p class="text-danger" *ngIf="doctorForm.get('password')?.errors">
+              Enter a valid password *
+            </p>
+          </div>
+        </div>
+
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            step="0.01"
+            id="specialist"
+            class="form-control"
+            placeholder="specialist"
+            formControlName="specialist"
+          />
+          <div
+            *ngIf="
+              doctorForm.get('specialist')?.invalid &&
+              doctorForm.get('specialist')?.touched
+            "
+          >
+            <p
+              class="text-danger"
+              *ngIf="doctorForm.get('specialist')?.hasError('required')"
+            >
+              This Field is required *
+            </p>
+          </div>
+        </div>
+
+        <div class="form-outline mb-4">
+          <input
+            type="number"
+            step="0.1"
+            step="0.01"
+            id="fees"
+            class="form-control"
+            placeholder="fees"
+            formControlName="fees"
+          />
+          <div
+            *ngIf="
+              doctorForm.get('fees')?.invalid && doctorForm.get('fees')?.touched
+            "
+          >
+            <p
+              class="text-danger"
+              *ngIf="doctorForm.get('fees')?.hasError('required')"
+            >
+              This Field is required *
+            </p>
+          </div>
+        </div>
+
+        <div class="form-outline mb-4">
+          <input
+            type="number"
+            step="0.1"
+            id="experience"
+            class="form-control"
+            placeholder="experience"
+            formControlName="experience"
+          />
+          <div
+            *ngIf="
+              doctorForm.get('experience')?.invalid &&
+              doctorForm.get('experience')?.touched
+            "
+          >
+            <p
+              class="text-danger"
+              *ngIf="doctorForm.get('experience')?.hasError('required')"
+            >
+              This Field is required *
+            </p>
+          </div>
+        </div>
+
+        <div class="form-outline mb-4">
+          <input
+            type="text"
+            id="profileImg"
+            class="form-control"
+            placeholder="Profile Image Link"
+            formControlName="profileImg"
+          />
+          <div
+            *ngIf="
+              doctorForm.get('profileImg')?.invalid &&
+              doctorForm.get('profileImg')?.touched
+            "
+          >
+            <p
+              class="text-danger"
+              *ngIf="doctorForm.get('profileImg')?.hasError('required')"
+            >
+              This Field is required *
+            </p>
+          </div>
+        </div>
+
+        <!-- 2 column grid layout -->
+        <div class="row mb-4">
+          <div class="col-md-6 d-flex justify-content-center">
+            <!-- Checkbox -->
+            <div class="form-check mb-3 mb-md-0">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="loginCheck"
+                checked
+              />
+              <label class="form-check-label" for="loginCheck">
+                Remember me
+              </label>
+            </div>
+          </div>
+
+          <div class="col-md-6 d-flex justify-content-center">
+            <!-- Simple link -->
+            <a href="#!">Forgot password?</a>
+          </div>
+        </div>
+
+        <!-- Submit button -->
+        <button
+          type="submit"
+          class="btn btn-primary btn-block mb-4"
+          [disabled]="doctorForm.invalid"
+        >
+          Sign in
+        </button>
+
+        <!-- Register buttons -->
+        <div class="text-center">
+          <p>Have a account? <a [routerLink]="['/login']">Login</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

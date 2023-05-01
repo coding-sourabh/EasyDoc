@@ -1,0 +1,18 @@
+<main>
+  <section class="py-1 text-center container" >
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto" id="top-container">
+        <h1 class="fw-light">Your Baskets</h1>
+        <p>
+          <!--here . is necessary to point to current directory-->
+          <a [routerLink]="['./excercise']" queryParamsHandling="preserve" skipLocationChange="true" class="btn btn-primary my-2">Excercise</a>
+          <a [routerLink]="['./food']" skipLocationChange="true" class="btn btn-secondary my-2">Food</a>
+          <a [routerLink]="['./medicine']" skipLocationChange="true" class="btn btn-primary my-2">Medicine</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <hr>
+  <router-outlet></router-outlet>
+</main>
+

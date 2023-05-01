@@ -1,0 +1,27 @@
+<div class="excercise-container">
+  <div class="excercise-image-container">
+    <img
+      class="excercise-image"
+      src="{{ excercise.image }}"
+      alt="{{ excercise.name }}"
+    />
+  </div>
+
+  <hr />
+
+  <div class="excercise-body">
+    <div class="excercise-name">{{ excercise.name }}</div>
+    <div class="excercise-description">
+      {{
+        excercise.description.length > 50
+          ? (excercise.description | slice : 0 : 50) + "..."
+          : excercise.description
+      }}
+    </div>
+    <hr />
+    <div class="excercise-calories">Routine : {{ excercise.routine }}</div>
+    <div class="excercise-category">Category: {{ excercise.category }}</div>
+    <hr />
+    <button class="btn btn-primary" (click)="onexcerciseClick()">Add</button>
+  </div>
+</div>

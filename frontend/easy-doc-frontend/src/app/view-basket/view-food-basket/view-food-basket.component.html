@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="food-card" *ngFor="let food of allocFood">
+      <div class="food-container">
+        <div class="food-image-container">
+          <img
+            class="food-image"
+            src="{{ food.foodImage }}"
+            alt="{{ food.foodName }}"
+          />
+        </div>
+
+        <hr />
+
+        <div class="food-body">
+          <div class="food-name">{{ food.foodName }}</div>
+          <div class="food-description">
+            {{
+              food.description.length > 50
+                ? (food.description | slice : 0 : 50) + "..."
+                : food.description
+            }}
+          </div>
+          <hr />
+          <div class="food-calories">Calories : {{ food.calories }}</div>
+          <div class="food-category">Category: {{ food.category }}</div>
+          <hr />
+          <button class="btn btn-primary" (click)="onRemoveClick(food?.foodId)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

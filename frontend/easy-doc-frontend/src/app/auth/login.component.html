@@ -1,0 +1,66 @@
+<div class="main-container text-center">
+  <main class="form-signin">
+    <form [formGroup] = "loginForm" (ngSubmit)="onSubmit()">
+      <img class="mb-4" src="../../assets/logo.png" alt="" width="72" height="57">
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+      <h4 *ngIf="errorMessage" class="text-danger">{{errorMessage}}</h4>
+
+      <div class="form-floating">
+      <input
+        [ngClass]="loginForm.controls['email'].invalid && loginForm.controls['email'].touched ? 'alert alert-danger' : ''"
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+        placeholder="name@example.com">
+        <label for="email">Email address</label>
+        <span class="text-danger invalidMssg" *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched">
+          Enter valid email
+        </span>
+      </div>
+
+      <div class="form-floating">
+        <input
+        [ngClass]="loginForm.controls['password'].invalid && loginForm.controls['password'].touched ? 'alert alert-danger' : ''"
+        type="password"
+        class="form-control"
+        id="password"
+        formControlName="password"
+        placeholder="Password">
+        <label for="password">Password</label>
+      </div>
+      <span class="text-danger invalidMssg" *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+        Password should be of atleast 6 characters
+      </span>
+
+      <div class="form-floating">
+        <div style="display: flex;"
+        class="form-control"
+        [ngClass]="loginForm.controls['userType'].invalid && [loginForm.controls['userType'].touched] ? 'alert alert-danger' : ''"
+        >
+          <div style="display: flex; margin-right: 50px; align-items: center;" >
+            <p style="padding: 0; margin: 0;">Patient</p>
+            <input style="margin-left: 10px;" type="radio" name="userType" id="patientType" value="patient" formControlName="userType">
+          </div>
+          <div style="display: flex; margin-right: 50px; align-items: center;">
+            <p style="padding: 0; margin: 0;">Doctor</p>
+            <input style="margin-left: 10px;" type="radio" name="userType" id="doctorType" value="doctor" formControlName="userType">
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <p class="signup-text">Don't have a account? <a [routerLink]="['/signup']">Sign up</a> here</p>
+      <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="!loginForm.valid">
+        Sign in
+      </button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2023–2024</p>
+    </form>
+  </main>
+</div>
+

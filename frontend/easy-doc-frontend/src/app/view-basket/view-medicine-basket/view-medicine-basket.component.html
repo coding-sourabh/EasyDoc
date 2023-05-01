@@ -1,0 +1,32 @@
+<div class="main-container">
+  <div class="row">
+    <div class="medicine-card" *ngFor="let medicine of allocMedicine">
+      <div class="medicine-container">
+        <div class="medicine-image-container">
+          <img
+            class="medicine-image"
+            src="{{ medicine.medicineImage }}"
+            alt="{{ medicine.medicineName }}"
+          />
+        </div>
+
+        <hr />
+
+        <div class="medicine-body">
+          <div class="medicine-name">{{ medicine.medicineName }}</div>
+          <div class="medicine-description">
+            {{
+              medicine.description.length > 50
+                ? (medicine.description | slice : 0 : 50) + "..."
+                : medicine.description
+            }}
+          </div>
+          <hr />
+          <button class="btn btn-primary" (click)="onRemoveClick(medicine?.medicineId)">
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

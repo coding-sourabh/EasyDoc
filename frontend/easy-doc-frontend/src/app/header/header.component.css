@@ -1,0 +1,18 @@
+.brand-image {
+  height: 40px;
+}
+
+#mynav {
+  /* background-color: #a1bbec; */
+  color: black;
+  text-decoration: none;
+}
+
+.nav-link {
+  color: black;
+  font-weight: 400;
+}
+
+a {
+  cursor: pointer;
+}
